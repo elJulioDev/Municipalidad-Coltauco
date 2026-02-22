@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="description" content="Municipalidad de Coltauco - Región de O'Higgins. Trámites, noticias y servicios para la comunidad." />
+  <meta name="keywords" content="Coltauco, Municipalidad, Trámites, O'Higgins" />
+  <meta name="author" content="Municipalidad de Coltauco" />
+  <title>Municipalidad de Coltauco</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://www.coltauco.cl/provisoria/img/favicon.ico" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="index_style.css">
+</head>
+<body>
+
+<!-- ========== TOPBAR ========== -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <!-- Panel accesibilidad (fix testing #1: paleta dark mode real) -->
+      <div class="acc-panel">
+        <button class="acc-btn" aria-label="Opciones de accesibilidad">
+          <i class="fas fa-universal-access"></i> Accesibilidad
+        </button>
+        <div class="acc-dropdown" role="menu">
+          <button onclick="toggleDarkMode()" aria-label="Alternar modo oscuro">
+            <i class="fas fa-moon"></i> Modo oscuro
+          </button>
+          <button onclick="changeFontSize(1)" aria-label="Aumentar texto">
+            <i class="fas fa-search-plus"></i> Aumentar texto
+          </button>
+          <button onclick="changeFontSize(-1)" aria-label="Disminuir texto">
+            <i class="fas fa-search-minus"></i> Disminuir texto
+          </button>
+        </div>
+      </div>
+      <span class="topbar-sep">|</span>
+      <a href="https://www.facebook.com/municipalidadcoltauco" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.youtube.com/channel/UCVgTU3mwTX7ZiiB0JwPvBQ" target="_blank" rel="noopener" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://www.instagram.com/municoltauco" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+    <div class="topbar-right">
+      <a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados?org=MU059" target="_blank" rel="noopener">
+        <i class="fas fa-eye"></i> Transparencia activa
+      </a>
+      <span class="topbar-sep">|</span>
+      <a href="https://www.portaltransparencia.cl/PortalPdT/web/guest/directorio-de-organismos-regulados" target="_blank" rel="noopener">
+        <i class="fas fa-file-alt"></i> Solicitar información
+      </a>
+      <span class="topbar-sep">|</span>
+      <a href="https://www.leylobby.gob.cl/instituciones/MU059" target="_blank" rel="noopener">
+        <i class="fas fa-balance-scale"></i> Ley del Lobby
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== NAVBAR PRINCIPAL ========== -->
+<nav class="navbar-main" role="navigation" aria-label="Menú principal">
+  <div class="navbar-inner">
+    <a href="https://www.coltauco.cl/" class="navbar-brand" aria-label="Inicio - Municipalidad de Coltauco">
+      <img src="./Coltauco_files/ORIGINALN.png" alt="Municipalidad de Coltauco" />
+    </a>
+
+    <ul class="nav-menu">
+      <!-- Municipalidad -->
+      <li class="nav-item">
+        <a class="nav-link" href="#" aria-haspopup="true">
+          Municipalidad <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-mega" role="menu">
+          <div class="group-title">Autoridades</div>
+          <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=1">Alcalde</a>
+          <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=27">Concejales</a>
+          <hr/>
+          <div class="group-title">Dirección Municipal</div>
+          <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=6">Admin. Municipal</a>
+          <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=7">Admin. y Finanzas</a>
+          <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=8">Comunicaciones</a>
+          <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=11">Desarrollo Comunitario</a>
+          <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=29">Juzgado de Policía Local</a>
+        </div>
+      </li>
+
+      <!-- Noticias — fix testing #2: acceso directo desde header -->
+      <li class="nav-item">
+        <a class="nav-link noticias-link" href="https://www.coltauco.cl/provisoria/noticias.php" aria-haspopup="true">
+          Noticias <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-mega" role="menu">
+          <a href="https://www.coltauco.cl/provisoria/noticias.php">Todas las noticias</a>
+          <a href="https://www.coltauco.cl/provisoria/noticias.php?cat=medioambiente">Medio Ambiente</a>
+          <a href="https://www.coltauco.cl/provisoria/noticias.php?cat=municipalidad">Municipalidad</a>
+          <a href="https://www.coltauco.cl/provisoria/noticias.php?cat=cultura">Cultura</a>
+          <a href="https://www.coltauco.cl/provisoria/noticias.php?cat=emergencia">Emergencia Sanitaria</a>
+        </div>
+      </li>
+
+      <!-- Vive -->
+      <li class="nav-item">
+        <a class="nav-link" href="#" aria-haspopup="true">Vive <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-mega" role="menu">
+          <div class="group-title">Documentos</div>
+          <a href="https://www.coltauco.cl/provisoria/formulario.php?id=33">Ordenanzas Municipales</a>
+          <a href="https://www.coltauco.cl/provisoria/formulario.php?id=34">Plano Regulador</a>
+          <a href="https://www.coltauco.cl/provisoria/formulario.php?id=35">Estados Financieros</a>
+          <hr/>
+          <div class="group-title">Medio Ambiente</div>
+          <a href="https://airechile.mma.gob.cl/comunas/rancagua">Calidad del Aire</a>
+          <a href="https://www.google.com/maps/d/edit?mid=1ml5uP9UFRTwetd5zJ0mHk01tPFOqVoA">Plazas y Áreas Verdes</a>
+          <hr/>
+          <div class="group-title">Deporte</div>
+          <a href="https://maps.app.goo.gl/TLgoLnBTYqgcqdZK7">Estadio Municipal</a>
+          <a href="https://www.google.com/maps/d/edit?mid=1k8kZJlsIlPb29HhrwqUwkJQX74vO7U">Recintos Deportivos</a>
+        </div>
+      </li>
+
+      <!-- Explora -->
+      <li class="nav-item">
+        <a class="nav-link" href="#" aria-haspopup="true">Explora <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-mega" role="menu">
+          <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=3">Historia de Coltauco</a>
+          <a href="https://www.google.com/maps/d/edit?mid=1KZizWnTXbWfcYZPW0vg-UnWBWLXvzA">Zonas Turísticas</a>
+          <a href="https://www.google.com/maps/d/edit?mid=12kpCgnHE23KwSB9BCngeB5t8dEeJY6c">Establecimientos Educacionales</a>
+          <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=28">Biblioteca Pública</a>
+          <a href="https://coltauco.cl/NuevoTurismo/mapdom.php">Mapa de Obras</a>
+        </div>
+      </li>
+
+      <!-- Comunidad -->
+      <li class="nav-item">
+        <a class="nav-link" href="#" aria-haspopup="true">Comunidad <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-mega" role="menu">
+          <a href="https://www.coltauco.cl/Nuevo/index.php">Apoyo Social</a>
+          <a href="https://www.coltauco.cl/provisoria/orgcom.php?id=100">Organizaciones Comunitarias</a>
+          <a href="#">Seguridad Ciudadana</a>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Seguridad publica -->
+    <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=24"
+       class="nav-link"
+       style="background:rgba(0,0,0,0.15); border-radius:6px; padding:.5rem .9rem; color:#fff; font-weight:600; white-space:nowrap;">
+      <img src="./Coltauco_files/sp.png" alt="Seguridad Pública"
+           style="height:28px; width:auto; object-fit:contain; vertical-align:middle; margin-right:.4rem;">
+      Seguridad Ciudadana
+    </a>
+
+    <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Menú mobile -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="group-title">Municipalidad</div>
+    <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=1">Alcalde</a>
+    <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=27">Concejales</a>
+    <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=29">Juzgado de Policía Local</a>
+    <div class="group-title">Noticias</div>
+    <a href="https://www.coltauco.cl/provisoria/noticias.php">Todas las noticias</a>
+    <a href="https://www.coltauco.cl/provisoria/noticias.php?cat=medioambiente">Medio Ambiente</a>
+    <a href="https://www.coltauco.cl/provisoria/noticias.php?cat=cultura">Cultura</a>
+    <div class="group-title">Vive</div>
+    <a href="https://www.coltauco.cl/provisoria/formulario.php?id=33">Ordenanzas Municipales</a>
+    <a href="https://www.coltauco.cl/provisoria/formulario.php?id=35">Estados Financieros</a>
+    <a href="https://airechile.mma.gob.cl/comunas/rancagua">Calidad del Aire</a>
+    <div class="group-title">Explora</div>
+    <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=3">Historia de Coltauco</a>
+    <a href="https://www.google.com/maps/d/edit?mid=1KZizWnTXbWfcYZPW0vg-UnWBWLXvzA">Zonas Turísticas</a>
+    <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=28">Biblioteca Pública</a>
+    <div class="group-title">Comunidad</div>
+    <a href="https://www.coltauco.cl/Nuevo/index.php">Apoyo Social</a>
+    <a href="#">Seguridad Ciudadana</a>
+    <div class="group-title">Transparencia</div>
+    <a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados?org=MU059" target="_blank" rel="noopener">Transparencia Activa</a>
+    <a href="https://www.leylobby.gob.cl/instituciones/MU059" target="_blank" rel="noopener">Ley del Lobby</a>
+  </div>
+</nav>
+
+<!-- ========== HERO BIENVENIDA (carousel cuadrado + sidebar) ========== -->
+<div class="hero-welcome">
+
+  <!-- Hero carousel cuadrado -->
+  <section class="hero" aria-label="Noticias destacadas">
+    <div class="hero-slides" id="heroSlides">
+      <!-- Slide 1 -->
+      <div class="hero-slide">
+        <img src="./Coltauco_files/presidentesalud.jpg" alt="Hospital Digital Rural Coltauco" loading="eager" />
+        <div class="hero-overlay">
+          <span class="badge">Noticias</span>
+          <h2>En Coltauco se implementa "Hospital Digital Rural"</h2>
+          <a href="https://www.coltauco.cl/provisoria/noticias.php?id=352" class="btn-hero">
+            Ver más <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <img src="./Coltauco_files/AVANZANDO EN MAYOR SEGURIDAD PARA COLTAUCO.jpg" alt="Mayor Seguridad para Coltauco" loading="lazy" />
+        <div class="hero-overlay">
+          <span class="badge">Noticias</span>
+          <h2>Avanzando en mayor seguridad para Coltauco</h2>
+          <a href="https://www.coltauco.cl/provisoria/noticias.php?id=351" class="btn-hero">
+            Ver más <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="hero-slide">
+        <img src="./Coltauco_files/ZUMBA COMUNAL.jpg" alt="Gran participación en Zumba Comunal" loading="lazy" />
+        <div class="hero-overlay">
+          <span class="badge">Noticias</span>
+          <h2>Gran participación en masivo de Zumba Comunal</h2>
+          <a href="https://www.coltauco.cl/provisoria/noticias.php?id=354" class="btn-hero">
+            Ver más <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="hero-slide">
+        <img src="./Coltauco_files/DELEGACIONES DE CEPAL.jpg" alt="Delegaciones de CEPAL visitan Coltauco" loading="lazy" />
+        <div class="hero-overlay">
+          <span class="badge">Noticias</span>
+          <h2>Delegaciones de CEPAL visitan Coltauco</h2>
+          <a href="https://www.coltauco.cl/provisoria/noticias.php?id=353" class="btn-hero">
+            Ver más <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <button class="hero-btn prev" id="heroPrev" aria-label="Noticia anterior"><i class="fas fa-chevron-left"></i></button>
+    <button class="hero-btn next" id="heroNext" aria-label="Noticia siguiente"><i class="fas fa-chevron-right"></i></button>
+    <div class="hero-dots" id="heroDots"></div>
+  </section>
+
+  <!-- Sidebar: Servicios y Trámites (ahora ARRIBA junto al hero) -->
+  <aside class="sidebar" aria-label="Servicios y trámites">
+    <div class="service-box">
+      <div class="service-box-header">
+        <i class="fas fa-tasks"></i> Servicios y Trámites Online
+      </div>
+      <div class="service-list">
+        <a href="https://www.coltauco.cl/Nuevo/smunicipal.php?unidad=Protocolo%20del%20Buen%20Trato%20al%20Usuario%20al%20servicio"
+           class="service-card" aria-label="Protocolo Buen Trato">
+          <div class="sc-icon"><i class="fas fa-heart"></i></div>
+          <div class="sc-text">
+            <span>Buen Trato al Usuario</span>
+            <small>Protocolo de atención</small>
+          </div>
+          <i class="fas fa-chevron-right" style="margin-left:auto;color:#ccc;font-size:.7rem"></i>
+        </a>
+        <a href="https://www.sem2.gob.cl/tramites/permisos-de-circulacion-2c69080700/buscar"
+           class="service-card" aria-label="Segundas Cuotas Circulación">
+          <div class="sc-icon"><i class="fas fa-car"></i></div>
+          <div class="sc-text">
+            <span>Segundas Cuotas</span>
+            <small>Permiso de circulación</small>
+          </div>
+          <i class="fas fa-chevron-right" style="margin-left:auto;color:#ccc;font-size:.7rem"></i>
+        </a>
+        <a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=15"
+           class="service-card" aria-label="Gestión Territorial">
+          <div class="sc-icon"><i class="fas fa-id-card"></i></div>
+          <div class="sc-text">
+            <span>Gestión Territorial</span>
+            <small>Atención ciudadana</small>
+          </div>
+          <i class="fas fa-chevron-right" style="margin-left:auto;color:#ccc;font-size:.7rem"></i>
+        </a>
+        <a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados?org=MU059"
+           class="service-card" aria-label="Transparencia" target="_blank" rel="noopener">
+          <div class="sc-icon"><i class="fas fa-eye"></i></div>
+          <div class="sc-text">
+            <span>Transparencia Activa</span>
+            <small>Portal de transparencia</small>
+          </div>
+          <i class="fas fa-external-link-alt" style="margin-left:auto;color:#ccc;font-size:.7rem"></i>
+        </a>
+      </div>
+      <!-- Accesos extras -->
+      <div class="quick-services">
+        <a href="https://airechile.mma.gob.cl/comunas/rancagua" class="qs-item" target="_blank" rel="noopener" aria-label="Clima">
+          <i class="fas fa-cloud-sun"></i> Clima
+        </a>
+        <a href="http://www.censo2017.cl/servicio-de-mapas" class="qs-item" target="_blank" rel="noopener" aria-label="Censo">
+          <i class="fas fa-users"></i> Censo
+        </a>
+        <a href="https://intranet.coltauco.cl/pages/login.php" class="qs-item" aria-label="Intranet">
+          <i class="fas fa-lock"></i> Intranet
+        </a>
+        <a href="https://www.coltauco.cl/provisoria/orgcom.php?id=100" class="qs-item" aria-label="Organizaciones">
+          <i class="fas fa-sitemap"></i> Org. Comunitarias
+        </a>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- ========== NOTICIAS ========== -->
+<section class="main-section" aria-label="Últimas noticias">
+
+  <div class="section-header">
+    <h2 class="section-title">Últimas Noticias</h2>
+    <a href="https://www.coltauco.cl/provisoria/noticias.php" class="ver-todas">
+      Ver todas <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- Noticia destacada -->
+  <article class="noticia-featured">
+    <a href="https://www.coltauco.cl/provisoria/noticias.php?id=350" class="noticia-featured-img">
+      <img src="./Coltauco_files/NUEVOS EQUIPOS QUE SALVAN VIDAS.jpg"
+           alt="Nuevos equipos que salvan vidas" loading="lazy" />
+    </a>
+    <div class="noticia-featured-body">
+      <span class="label-cat cat-coltauco">Coltauco</span>
+      <h3>Nuevos equipos que salvan vidas: desfibriladores en puntos estratégicos de la comuna</h3>
+      <p>Desde hoy se han instalado desfibriladores en puntos estratégicos de Coltauco, un importante avance para la salud y seguridad de toda la comunidad.</p>
+      <a href="https://www.coltauco.cl/provisoria/noticias.php?id=350" class="btn-noticia">
+        Leer noticia <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </article>
+
+  <!-- Grid 4×2 -->
+  <div class="noticias-grid">
+
+    <article class="noticia-card">
+      <a href="https://www.coltauco.cl/provisoria/noticias.php?id=349">
+        <img src="./Coltauco_files/4794.jpg" alt="Clínica Dental Móvil" loading="lazy" />
+      </a>
+      <div class="noticia-card-body">
+        <span class="label-cat cat-alcaldia">Alcaldía</span>
+        <h4>Presidente Boric entrega nueva Clínica Dental Móvil para Coltauco</h4>
+        <a href="https://www.coltauco.cl/provisoria/noticias.php?id=349" class="leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="noticia-card">
+      <a href="https://www.coltauco.cl/provisoria/noticias.php?id=348">
+        <img src="./Coltauco_files/04782.jpg" alt="Infraestructura Deportiva" loading="lazy" />
+      </a>
+      <div class="noticia-card-body">
+        <span class="label-cat cat-alcaldia">Alcaldía</span>
+        <h4>Coltauco inaugura proyectos de infraestructura deportiva y plazas tras las inundaciones</h4>
+        <a href="https://www.coltauco.cl/provisoria/noticias.php?id=348" class="leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="noticia-card">
+      <a href="https://www.coltauco.cl/provisoria/noticias.php?id=347">
+        <img src="./Coltauco_files/basural2025.jpg" alt="Operativos micro basurales" loading="lazy" />
+      </a>
+      <div class="noticia-card-body">
+        <span class="label-cat cat-alcaldia">Alcaldía</span>
+        <h4>Municipalidad refuerza operativos para erradicar micro basurales en la comuna</h4>
+        <a href="https://www.coltauco.cl/provisoria/noticias.php?id=347" class="leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="noticia-card">
+      <a href="https://www.coltauco.cl/provisoria/noticias.php?id=346">
+        <img src="./Coltauco_files/MINI PARQUE DE LORETO.jpg" alt="Mini Parque de Loreto" loading="lazy" />
+      </a>
+      <div class="noticia-card-body">
+        <span class="label-cat cat-alcaldia">Alcaldía</span>
+        <h4>Inauguración Mini Parque de Loreto: nueva área verde para la comunidad</h4>
+        <a href="https://www.coltauco.cl/provisoria/noticias.php?id=346" class="leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="noticia-card">
+      <a href="https://www.coltauco.cl/provisoria/noticias.php?id=345">
+        <img src="./Coltauco_files/JARDIN TIA NUVIA.jpg" alt="Jardín Tía Nuvia" loading="lazy" />
+      </a>
+      <div class="noticia-card-body">
+        <span class="label-cat cat-alcaldia">Alcaldía</span>
+        <h4>Jardín Infantil y Sala Cuna Tía Nuvia recibe reconocimiento oficial</h4>
+        <a href="https://www.coltauco.cl/provisoria/noticias.php?id=345" class="leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="noticia-card">
+      <a href="https://www.coltauco.cl/provisoria/noticias.php?id=344">
+        <img src="./Coltauco_files/MUSEO.jpg" alt="Museo de Coltauco" loading="lazy" />
+      </a>
+      <div class="noticia-card-body">
+        <span class="label-cat cat-alcaldia">Alcaldía</span>
+        <h4>El nuevo Museo de Coltauco que maravilla con su colección natural</h4>
+        <a href="https://www.coltauco.cl/provisoria/noticias.php?id=344" class="leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="noticia-card">
+      <a href="https://www.coltauco.cl/provisoria/noticias.php?id=343">
+        <img src="./Coltauco_files/DESAFIO PUENTES COLTAUCO.jpg" alt="Proyecto puentes Coltauco" loading="lazy" />
+      </a>
+      <div class="noticia-card-body">
+        <span class="label-cat cat-alcaldia">Alcaldía</span>
+        <h4>Inédito proyecto de prevención de riesgos de desastres se desarrolla en Coltauco</h4>
+        <a href="https://www.coltauco.cl/provisoria/noticias.php?id=343" class="leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="noticia-card">
+      <a href="https://www.coltauco.cl/provisoria/noticias.php?id=342">
+        <img src="./Coltauco_files/UAPORRINO.jpg" alt="UAPORRINO Coltauco" loading="lazy" />
+      </a>
+      <div class="noticia-card-body">
+        <span class="label-cat cat-alcaldia">Alcaldía</span>
+        <h4>Coltauco contará con UAPORRINO: servicio de atención pediátrica ambulatoria</h4>
+        <a href="https://www.coltauco.cl/provisoria/noticias.php?id=342" class="leer-mas">Leer más <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+<!-- ========== GALERÍA DE ACTIVIDADES ========== -->
+<section class="actividades-section" aria-label="Actividades de la comuna">
+  <div class="actividades-inner">
+    <div class="section-header">
+      <h2 class="section-title">Actividades en Coltauco</h2>
+      <a href="https://www.coltauco.cl/provisoria/noticias.php" class="ver-todas">
+        Ver todas <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="actividades-grid">
+      <div class="act-item"><img src="./Coltauco_files/foto10.jpeg" alt="Actividad 10" loading="lazy" /><div class="act-label">Actividad 10</div></div>
+      <div class="act-item"><img src="./Coltauco_files/foto11.jpeg" alt="Actividad 11" loading="lazy" /><div class="act-label">Actividad 11</div></div>
+      <div class="act-item"><img src="./Coltauco_files/foto12.jpeg" alt="Actividad 12" loading="lazy" /><div class="act-label">Actividad 12</div></div>
+      <div class="act-item"><img src="./Coltauco_files/foto13.jpeg" alt="Actividad 13" loading="lazy" /><div class="act-label">Actividad 13</div></div>
+      <div class="act-item"><img src="./Coltauco_files/foto14.jpeg" alt="Actividad 14" loading="lazy" /><div class="act-label">Actividad 14</div></div>
+      <div class="act-item"><img src="./Coltauco_files/foto15.jpeg" alt="Actividad 15" loading="lazy" /><div class="act-label">Actividad 15</div></div>
+      <div class="act-item"><img src="./Coltauco_files/foto16.jpeg" alt="Actividad 16" loading="lazy" /><div class="act-label">Actividad 16</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STRIP TRANSPARENCIA ========== -->
+<div class="transparencia-strip" aria-label="Accesos de transparencia">
+  <div class="transp-inner">
+    <a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados?org=MU059" class="transp-item" target="_blank" rel="noopener">
+      <i class="fas fa-eye"></i> Transparencia Activa
+    </a>
+    <a href="https://www.portaltransparencia.cl/PortalPdT/web/guest/directorio-de-organismos-regulados" class="transp-item" target="_blank" rel="noopener">
+      <i class="fas fa-file-alt"></i> Solicitar Información
+    </a>
+    <a href="https://www.leylobby.gob.cl/instituciones/MU059" class="transp-item" target="_blank" rel="noopener">
+      <i class="fas fa-balance-scale"></i> Ley del Lobby
+    </a>
+    <a href="https://www.coltauco.cl/provisoria/orgcom.php?id=100" class="transp-item">
+      <i class="fas fa-users"></i> Organizaciones Comunitarias
+    </a>
+    <a href="#" class="transp-item">
+      <i class="fas fa-shield-alt"></i> Política de Privacidad
+    </a>
+  </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer aria-label="Pie de página">
+  <div class="footer-grid">
+    <!-- Marca -->
+    <div class="footer-brand">
+      <img src="./Coltauco_files/ORIGINALN.png" alt="Municipalidad de Coltauco" />
+      <p>Municipalidad de Coltauco — Región del Libertador General Bernardo O'Higgins.<br/>
+         Comprometidos con el desarrollo y bienestar de nuestra comunidad.</p>
+      <div class="footer-rrss">
+        <a href="https://www.facebook.com/municipalidadcoltauco" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCVgTU3mwTX7ZiiB0JwPvBQ" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/municoltauco" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Municipalidad -->
+    <div class="footer-col">
+      <h4>Municipalidad</h4>
+      <ul>
+        <li><a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=1">Alcalde</a></li>
+        <li><a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=27">Concejales</a></li>
+        <li><a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=29">Juzgado de Policía</a></li>
+        <li><a href="https://www.coltauco.cl/provisoria/vistamuni3.php?id=6">Admin. Municipal</a></li>
+      </ul>
+    </div>
+    <!-- Servicios -->
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="https://www.coltauco.cl/provisoria/noticias.php">Noticias</a></li>
+        <li><a href="https://airechile.mma.gob.cl/comunas/rancagua" target="_blank" rel="noopener">Calidad del Aire</a></li>
+        <li><a href="https://www.google.com/maps/d/edit?mid=1ml5uP9UFRTwetd5zJ0mHk01tPFOqVoA" target="_blank" rel="noopener">Áreas Verdes</a></li>
+        <li><a href="https://intranet.coltauco.cl/pages/login.php">Intranet</a></li>
+      </ul>
+    </div>
+    <!-- Transparencia -->
+    <div class="footer-col">
+      <h4>Transparencia</h4>
+      <ul>
+        <li><a href="https://www.portaltransparencia.cl/PortalPdT/directorio-de-organismos-regulados?org=MU059" target="_blank" rel="noopener">Portal Transparencia</a></li>
+        <li><a href="https://www.leylobby.gob.cl/instituciones/MU059" target="_blank" rel="noopener">Ley del Lobby</a></li>
+        <li><a href="https://www.coltauco.cl/provisoria/formulario.php?id=33">Ordenanzas</a></li>
+        <li><a href="https://www.coltauco.cl/provisoria/formulario.php?id=35">Estados Financieros</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Municipalidad de Coltauco — Todos los derechos reservados</span>
+    <a href="#">Política de Privacidad</a>
+  </div>
+</footer>
+
+<!-- FAB accesibilidad mobile -->
+<button class="fab-acc" id="fabAcc" aria-label="Opciones de accesibilidad">
+  <i class="fas fa-universal-access"></i>
+</button>
+
+<!-- Toast de notificación -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="index_script.js"></script>
+</body>
+</html>

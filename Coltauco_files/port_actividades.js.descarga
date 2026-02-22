@@ -1,0 +1,50 @@
+function loadNotDes(path_xml){
+    $.get(path_xml, function (xml) {
+	   var title = $(xml).find("_txt_titular").text();
+	   var ts = $(xml).find("_ts").text();
+	   var fechac = $(xml).find("_fechac").text();
+	   var fecha = $(xml).find("_fecha").text();
+	   var dia = $(xml).find("_dia").text();
+	   var mes = $(xml).find("_mes").text();
+	   var hora = $(xml).find("_hora").text();
+	   var foto1 = $(xml).find("_foto1").text();
+	   var foto2 = $(xml).find("_foto2").text();
+	   var direccion = $(xml).find("_dirececion").text();
+	   var subtitulo = $(xml).find("_subtitulo").text();if (subtitulo.length < 1) subtitulo=" ";
+	   var fileurl = $(xml).find("_fileurl").text();
+       var fileurl = fileurl.replace(".xml",".html");
+	   var alta = $(xml).find("_alta").text();
+	   var bajada = $(xml).find("_txt_bajada").text();
+	    $('#actividad-'+ts+' .slider-eventos-single-text h3').html(title);
+	    $('#actividad-'+ts+' .img-fluid').attr("src",foto1);
+	    $('#actividad-'+ts+' .slider-eventos-single-mes').html(dia);
+		$('#actividad-'+ts+' a').attr("href",fileurl);
+		$('#actividad-'+ts+' .slider-eventos-single-desc h5 a').html(fecha);
+		$('#actividad-'+ts+' .slider-eventos-single-desc p').html(subtitulo);
+    });
+}
+/** Crea Carrusel de Actividades Portada */
+$(function() {
+  $("#widget-actividades").after('<div class="row mb-5 justify-content-center"><div class="col-lg-10 eventos-home"><div class="owl-carousel slider-eventos" id="port-actividades"></div><div class="eventos-vermas"><a href="/provi/site/edic/base/port/actividades.html" class="ver-todos">Ver todas las actividades <i class="fas fa-arrow-right"></i></a></div></div></div><h3></h3>');
+  var item_id=0;
+  var randrss = Math.floor(Math.random()*100);
+  $.get('/provi/stat/inicio.xml?v='+randrss, function (xml) {
+     var terms = $(xml).find('rowartic').get();
+     $.each(terms, function () {
+		var area = $(this).find("area").text();
+        var file = $(this).find("file").text();
+        var dir  = $(this).find("dir").text();
+        var pub  = $(this).find("pub").text();
+        if(area == 4) {
+            $("#port-actividades").append('<div class="slider-eventos-single" id="actividad-'+file+'"><a href="" class="img-event"><img src="" alt="" class="img-fluid"></a><div class="slider-eventos-single-text"><h3></h3><div class="slider-eventos-single-about"><span class="slider-eventos-single-mes"></span><div class="slider-eventos-single-desc"><h5><a href=""></a></h5><p></p></div></div></div></div>');
+            loadNotDes("/provi/site/artic/"+dir+"/pagspar/"+file+"_ficha_actividades_xml.xml");
+        }
+     }); 
+    if($('#port-actividades div').length > 0) {
+	  $(".slider-eventos").owlCarousel({items: 1,dots: false,nav: true,navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],autoplay: false,loop: true,slideTransition: 'ease',smartSpeed: 500 });
+    }
+    else {
+      $("#marc-slide-aal").remove();
+    }
+  });
+});

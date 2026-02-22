@@ -1,0 +1,239 @@
+$( document ).ready(function() {
+
+    if($('.servicio').length){
+        $('.header-quiero-mobile').hide();
+    }
+
+    function myFunction(x) {
+        if (x.matches) { // If media query matches
+            $(window).bind('scroll', function () {
+                if ($(window).scrollTop() > 50) {
+                    $('.header-principal').addClass('fixed-top');
+                } else {
+                    $('.header-principal').removeClass('fixed-top');
+                }
+            });
+        }
+      }
+      
+      var x = window.matchMedia("(min-width: 768px)")
+      myFunction(x) // Call listener function at run time
+      x.addListener(myFunction) // Attach listener function on state changes
+      
+    $(".header-subsecciones .dropdown-menu a").click(function(){
+        $(".btn-beneficios").html($(this).text());
+        sessionStorage.setItem("actual", $(this).text())
+    });
+    
+    $(".btn-beneficios").text(sessionStorage.actual);
+
+  /*$(function(){
+    jQuery('img.svg').each(function(){
+        var $img = jQuery(this);
+        var imgID = $img.attr('id');
+        var imgClass = $img.attr('class');
+        var imgURL = $img.attr('src');
+    
+        jQuery.get(imgURL, function(data) {
+            // Get the SVG tag, ignore the rest
+            var $svg = jQuery(data).find('svg');
+    
+            // Add replaced image's ID to the new SVG
+            if(typeof imgID !== 'undefined') {
+                $svg = $svg.attr('id', imgID);
+            }
+            // Add replaced image's classes to the new SVG
+            if(typeof imgClass !== 'undefined') {
+                $svg = $svg.attr('class', imgClass+' replaced-svg');
+            }
+    
+            // Remove any invalid XML tags as per http://validator.w3.org
+            $svg = $svg.removeAttr('xmlns:a');
+            
+            // Check if the viewport is set, else we gonna set it if we can.
+            if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+            }
+    
+            // Replace image with new SVG
+            $img.replaceWith($svg);
+    
+        }, 'xml');
+    
+        });
+    });*/
+
+    // Add slideDown animation to Bootstrap dropdown when expanding.
+    $('.dropdown').on('show.bs.dropdown', function() {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+    });
+
+    // Add slideUp animation to Bootstrap dropdown when collapsing.
+    $('.dropdown').on('hide.bs.dropdown', function() {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+    });
+
+    $(".slider-main").owlCarousel({
+        items: 1,
+        dots: true,
+        dotClass: 'slider-main-dot',
+        autoplay: true,
+        autoplayTimeout: 15000,
+        smartSpeed: 500,
+        loop: true,
+        autoplayHoverPause: true,
+        slideTransition: 'ease',
+        onInitialized: navigationFill,
+        onTranslated: navigationFill
+    });
+
+    $(".slider-main").on('changed.owl.carousel', function(event) {
+        navigationFill();
+    })
+    
+    function navigationFill() {  
+    
+        var pr = $(".slider-main-dot span");
+        $(pr).css({ width: "0%" });
+
+        var progressbar = $(".slider-main-dot.active span");
+        $(progressbar).animate({
+             width: "100%" 
+            }, {
+                duration: 15000,
+            }
+        );
+
+    }
+
+    $(".slider-eventos").owlCarousel({
+        items: 1,
+        dots: false,
+        nav: true,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+        autoplay: true,
+        loop: true,
+        slideTransition: 'ease',
+        smartSpeed: 500,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:true
+            },
+            600:{
+                items:1,
+                nav:true
+            },
+            992:{
+                items:1,
+                nav:true,
+            }
+        }        
+    });
+
+    $(".slider-quiero").owlCarousel({
+        items: 1,
+        dots: false,
+        nav: true,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+        autoplay: false,
+        smartSpeed: 500,
+        loop: true,
+        slideTransition: 'ease',
+    });
+
+    $(".slider-modulos").owlCarousel({
+        dots: false,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+        smartSpeed: 500,
+        loop: true,
+        autoplay: true,
+        rewind: true,
+        slideTransition: 'ease',
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:true
+            },
+            600:{
+                items:2,
+                nav:true
+            },
+            992:{
+                items:4,
+                nav:true,
+            }
+        }
+    });
+
+    $(".slider-beneficios").owlCarousel({
+        dots: false,
+        nav: true,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+        autoplay: false,
+        smartSpeed: 500,
+        loop: false,
+        slideTransition: 'ease',
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                nav:true
+            },
+            600:{
+                items:3,
+                nav:true
+            },
+            992:{
+                items:5,
+                nav:true,
+            }
+        }
+    });
+
+    /*
+    $("#btn-grilla").click(function(event) {
+        $(this).addClass('active');
+        $("#btn-lista").removeClass('active');
+        $(".cuadricula-container").show();
+        $(".list-container").hide();
+    });
+    $("#btn-lista").click(function(event) {
+        $(this).toggleClass('active');
+        $("#btn-grilla").removeClass('active');
+        $(".list-container").show();
+        $(".cuadricula-container").hide();
+    });
+    */
+    
+    $(document).on("click", ".btn-sort", function () {
+        $('.btn-sort').removeClass('active');
+        $(this).addClass('active');
+        var data_tab = $(this).attr('data-tab');
+        if ($('.filtro_content_tabs').hasClass(data_tab)) {
+            $('.filtro_content_tabs').addClass('d-none');
+            $('.'+data_tab).removeClass('d-none');
+        }
+    });
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+
+    $('body').on('click', '.search-button', function(e){
+            e.preventDefault();
+            $('.search-bar').css({'max-width':'100%', 'opacity': '1'});
+            $('.search-bar input').focus();
+            $('.search-bar-sub').removeClass('d-none');
+    });
+    $('body').on('click', '.search-back', function(e){
+            e.preventDefault();
+            $('.search-bar').css({'max-width':'0px', 'opacity': '0'});
+            $('.search-bar-sub').addClass('d-none');
+    });
+    
+
+});

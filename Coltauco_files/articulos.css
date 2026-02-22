@@ -1,0 +1,64 @@
+/*vtxt*/
+
+.CUERPO *[class*="link-social"],
+.card-body *[class*="link-social"]{
+    color: #000;
+    padding: .2rem .7rem;
+    font-weight: 800;
+    -webkit-transition: all .15s ease;
+    transition: all .15s ease;
+    margin-top: 1rem;
+    display: table;
+    border-radius: 3px;
+	width: inline;
+	content:"\f099";
+	padding-left:25px;
+	
+}
+.CUERPO .link-social-twitter,
+.card-body .link-social-twitter{ 
+	background:#1cd1c5 url(../img/twitter-brands.svg) no-repeat 5px 6px; background-size:15px;
+}
+.CUERPO .link-social-facebook,
+.card-body .link-social-facebook{ 
+	background:#1cd1c5 url(../img/facebook-f-brands.svg) no-repeat 5px 5px; background-size:10px;
+}
+.CUERPO .link-social-instagram,
+.card-body .link-social-instagram{ 
+	background:#1cd1c5 url(../img/instagram-brands.svg) no-repeat 5px 5px; background-size:15px;
+}
+.CUERPO .link-social-linkedin,
+.card-body .link-social-linkedin{ 
+	background:#1cd1c5 url(../img/linkedin-in-brands.svg) no-repeat 5px 5px; background-size:15px;
+}
+.CUERPO .link-social-youtube,
+.card-body .link-social-youtube{ 
+	background:#1cd1c5 url(../img/youtube-brands.svg) no-repeat 5px 6px; background-size:17px;
+}
+
+.CUERPO .link-relacionado,
+.card-boby .link-relacionado { 
+    background-color: #1cd1c5;
+    color: #000;
+    padding: .2rem .7rem;
+    font-weight: 800;
+    -webkit-transition: all .15s ease;
+    transition: all .15s ease;
+    margin-top: 1rem;
+    display: table;
+    border-radius: 3px;
+	width: inline;
+	content:"\f099";
+}
+3
+/*/vtxt*/
+
+
+
+.easy-autocomplete-container { background:#FFF; display:table; padding-left:30px;}
+.easy-autocomplete-container ul { padding:0; margin:0;}
+.easy-autocomplete-container ul > li { padding:0; margin:0; list-style:none;}
+.easy-autocomplete-container ul > li { padding:0; margin:0; list-style:none;}
+.eac-item { background:#FFF; padding-left:15px;}
+.easy-autocomplete-container a { display:block; background:#fff; color:#666; font-weight:normal; line-height:25px; padding:3px 0;}
+.easy-autocomplete-container a b { color:#000;}
