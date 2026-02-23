@@ -549,22 +549,38 @@
 </section>
 
 <!-- ========== GALERÍA DE ACTIVIDADES ========== -->
-<section class="actividades-section" aria-label="Actividades de la comuna">
-  <div class="actividades-inner">
-    <div class="section-header">
-      <h2 class="section-title">Actividades en Coltauco</h2>
-      <a href="https://www.coltauco.cl/provisoria/noticias.php" class="ver-todas">
+<section class="actividades-section" aria-label="Actividades de la comuna" style="background-color: var(--gris-card); padding-top: 2rem; padding-bottom: 2rem;">
+  <div class="actividades-inner" style="max-width: 1280px; margin: 0 auto; padding: 0 1rem;">
+    
+    <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+      <h2 class="section-title" style="margin: 0; color: var(--verde); font-size: 1.4rem;">Actividades en Coltauco</h2>
+      <a href="https://www.coltauco.cl/provisoria/noticias.php" class="ver-todas" style="font-weight: 600; color: var(--verde);">
         Ver todas <i class="fas fa-arrow-right"></i>
       </a>
     </div>
-    <div class="actividades-grid">
-      <div class="act-item"><img src="./Coltauco_files/foto10.jpeg" alt="Actividad 10" loading="lazy" /><div class="act-label">Actividad 10</div></div>
-      <div class="act-item"><img src="./Coltauco_files/foto11.jpeg" alt="Actividad 11" loading="lazy" /><div class="act-label">Actividad 11</div></div>
-      <div class="act-item"><img src="./Coltauco_files/foto12.jpeg" alt="Actividad 12" loading="lazy" /><div class="act-label">Actividad 12</div></div>
-      <div class="act-item"><img src="./Coltauco_files/foto13.jpeg" alt="Actividad 13" loading="lazy" /><div class="act-label">Actividad 13</div></div>
-      <div class="act-item"><img src="./Coltauco_files/foto14.jpeg" alt="Actividad 14" loading="lazy" /><div class="act-label">Actividad 14</div></div>
-      <div class="act-item"><img src="./Coltauco_files/foto15.jpeg" alt="Actividad 15" loading="lazy" /><div class="act-label">Actividad 15</div></div>
-      <div class="act-item"><img src="./Coltauco_files/foto16.jpeg" alt="Actividad 16" loading="lazy" /><div class="act-label">Actividad 16</div></div>
+
+    <div class="actividades-carousel-wrapper" id="actividadesWrapper">
+      
+      <button class="act-nav-btn left" id="actPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+      <button class="act-nav-btn right" id="actNext" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+
+      <div class="actividades-track" id="actividadesTrack">
+        <div class="act-item"><img src="./Coltauco_files/foto10.jpeg" alt="Actividad 10" loading="lazy" /><div class="act-label"><span>Actividad 10</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto11.jpeg" alt="Actividad 11" loading="lazy" /><div class="act-label"><span>Actividad 11</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto12.jpeg" alt="Actividad 12" loading="lazy" /><div class="act-label"><span>Actividad 12</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto13.jpeg" alt="Actividad 13" loading="lazy" /><div class="act-label"><span>Actividad 13</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto14.jpeg" alt="Actividad 14" loading="lazy" /><div class="act-label"><span>Actividad 14</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto15.jpeg" alt="Actividad 15" loading="lazy" /><div class="act-label"><span>Actividad 15</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto16.jpeg" alt="Actividad 16" loading="lazy" /><div class="act-label"><span>Actividad 16</span></div></div>
+
+        <div class="act-item"><img src="./Coltauco_files/foto10.jpeg" alt="Actividad 10" loading="lazy" /><div class="act-label"><span>Actividad 10</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto11.jpeg" alt="Actividad 11" loading="lazy" /><div class="act-label"><span>Actividad 11</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto12.jpeg" alt="Actividad 12" loading="lazy" /><div class="act-label"><span>Actividad 12</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto13.jpeg" alt="Actividad 13" loading="lazy" /><div class="act-label"><span>Actividad 13</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto14.jpeg" alt="Actividad 14" loading="lazy" /><div class="act-label"><span>Actividad 14</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto15.jpeg" alt="Actividad 15" loading="lazy" /><div class="act-label"><span>Actividad 15</span></div></div>
+        <div class="act-item"><img src="./Coltauco_files/foto16.jpeg" alt="Actividad 16" loading="lazy" /><div class="act-label"><span>Actividad 16</span></div></div>
+      </div>
     </div>
   </div>
 </section>

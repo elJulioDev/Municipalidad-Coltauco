@@ -121,3 +121,58 @@
       d.classList.toggle('active', i === current);
     });
   }
+
+/* --- Carrusel de Actividades (Híbrido: Auto + Flechas) --- */
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.getElementById('actividadesTrack');
+  const wrapper = document.getElementById('actividadesWrapper');
+  const btnPrev = document.getElementById('actPrev');
+  const btnNext = document.getElementById('actNext');
+
+  if (!track || !wrapper) return;
+
+  let isPaused = false;
+  let scrollPos = 0;
+  const speed = 0.5; // Velocidad del auto-scroll (píxeles por frame)
+  const cardWidth = 300; // Ancho de tarjeta + gap aprox
+
+  // Animación infinita fluida
+  function autoScroll() {
+      if (!isPaused) {
+          scrollPos += speed;
+          // Si llega a la mitad (fin del primer grupo), reinicia invisiblemente
+          if (scrollPos >= track.scrollWidth / 2) {
+              scrollPos = 0; 
+          }
+          track.style.transform = `translateX(-${scrollPos}px)`;
+      }
+      requestAnimationFrame(autoScroll);
+  }
+  requestAnimationFrame(autoScroll);
+
+  // Pausar auto-scroll en hover
+  wrapper.addEventListener('mouseenter', () => isPaused = true);
+  wrapper.addEventListener('mouseleave', () => isPaused = false);
+
+  // Funcionalidad de flechas manuales
+  function moveManual(direction) {
+      // Activa transición suave temporalmente para el clic
+      track.style.transition = 'transform 0.3s ease'; 
+      scrollPos += (direction * cardWidth);
+
+      // Límites manuales para mantener la ilusión de infinito
+      if (scrollPos >= track.scrollWidth / 2) {
+          scrollPos = 0;
+      } else if (scrollPos < 0) {
+          scrollPos = (track.scrollWidth / 2) - cardWidth;
+      }
+
+      track.style.transform = `translateX(-${scrollPos}px)`;
+
+      // Desactiva la transición para devolverle el control al auto-scroll fluido
+      setTimeout(() => { track.style.transition = 'none'; }, 300);
+  }
+
+  btnNext.addEventListener('click', () => moveManual(1));
+  btnPrev.addEventListener('click', () => moveManual(-1));
+});
