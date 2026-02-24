@@ -176,9 +176,9 @@ body.dark-mode .main-section   { background: var(--gris-bg); }
     top: 100%;
     left: 0;
     width: 100%;
-    background: #fff;
-    border-top: 1px solid #e0e0e0;
-    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    background: var(--verde); /* Fondo verde oscuro institucional */
+    border-top: none; 
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25); /* Sombra más profunda */
     padding: 0;
     z-index: 800;
 }
@@ -208,31 +208,33 @@ body.dark-mode .main-section   { background: var(--gris-bg); }
 }
 .dropdown-mega a {
     display: inline-block;
-    padding: .3rem 0;
+    padding: .4rem .5rem;
     font-size: .9rem;
-    color: var(--texto);
-    transition: color .2s, transform .2s;
+    color: #f1f8e9; /* Blanco humo suave */
+    border-radius: 4px;
+    transition: all .2s ease;
 }
 .dropdown-mega a:hover {
-    color: var(--naranjo);
-    transform: translateX(5px); /* Pequeño desplazamiento a la derecha */
-    background: transparent;
+    color: #ffffff; /* Blanco puro al pasar el mouse */
+    background: rgba(255, 255, 255, 0.1); /* Efecto de botón sutil */
+    transform: translateX(4px); 
 }
 .dropdown-mega .group-title {
     font-size: .85rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--verde);
+    color: #a5d6a7; /* Verde menta claro para resaltar los títulos */
     padding-bottom: .5rem;
-    border-bottom: 2px solid #e8f5e9;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Línea sutil */
     margin-bottom: .5rem;
+    letter-spacing: 0.05em;
 }
 .dropdown-mega-image {
-    width: 350px; /* Ancho fijo para la imagen */
+    width: 350px; 
     flex-shrink: 0;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--sombra);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     align-self: flex-start;
 }
 @keyframes fadeIn {
@@ -264,19 +266,17 @@ body.dark-mode .dropdown-mega a:hover { color: var(--verde-institucional); }
 .nav-link.noticias-link:hover { background: rgba(0,0,0,0.18); color: #fff; }
 
 /* =============================================
-    MOBILE NAV (Diseño Elegante y Animado)
+    MOBILE NAV (Diseño Sólido e Institucional)
 ============================================= */
 .mobile-nav {
     display: none; 
-    background: #ffffff;
-    border-top: 1px solid #eaeaea;
+    background: var(--verde); /* Fondo oscuro principal */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-height: calc(100vh - 70px);
     overflow-y: auto;
-    /* Sombra suave para dar profundidad */
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* Animación de entrada al presionar el menú hamburguesa */
 .mobile-nav.open { 
     display: block; 
     animation: fadeInSlideDown 0.3s ease-out forwards;
@@ -288,96 +288,91 @@ body.dark-mode .dropdown-mega a:hover { color: var(--verde-institucional); }
 }
 
 .mobile-nav-group {
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Separadores sutiles */
 }
 
 /* Botones principales (Municipalidad, Noticias, etc.) */
 .mobile-nav-btn {
     width: 100%;
     text-align: left;
-    background: #ffffff;
+    background: var(--verde);
     border: none;
-    padding: 1rem 1.2rem;
-    font-size: 0.95rem; /* Texto equilibrado */
+    padding: 1.1rem 1.2rem;
+    font-size: 0.95rem; 
     font-weight: 600;
-    color: var(--texto);
+    color: #ffffff; /* Letras blancas sólidas */
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 .mobile-nav-btn:hover, .mobile-nav-btn.active {
-    background: #f8fbf8;
-    color: var(--verde);
+    background: var(--verde-hover); /* Verde aún más oscuro al presionar */
+    color: #ffffff;
 }
 
 .mobile-nav-btn i {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 0.8rem;
-    color: #999;
+    color: rgba(255, 255, 255, 0.6); /* Icono semi-transparente */
 }
 
 .mobile-nav-btn.active i {
     transform: rotate(180deg);
-    color: var(--verde);
+    color: #ffffff;
 }
 
-/* Contenedor desplegable con animación de altura fluida */
+/* Contenedor desplegable (Submenú) */
 .mobile-nav-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #fafbfc;
+    background: var(--verde-hover); /* Un tono ligeramente más oscuro para diferenciar jerarquía */
 }
 
-/* Títulos separadores (Verdes, en mayúscula y elegantes) */
+/* Títulos separadores dentro del móvil */
 .mobile-nav-content .group-title {
-    color: var(--verde);
-    font-size: 0.75rem; /* Más pequeño para diferenciar jerarquía */
+    color: #a5d6a7; /* Verde menta claro */
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     padding: 1.2rem 1.2rem 0.4rem 1.2rem;
     margin: 0;
-    opacity: 0.9;
 }
 
 /* Enlaces (Trámites, Departamentos, etc.) */
 .mobile-nav-content a {
     display: block;
-    padding: 0.5rem 1.2rem 0.5rem 1.5rem;
-    font-size: 0.85rem; /* Texto más sutil */
+    padding: 0.6rem 1.2rem 0.6rem 1.5rem;
+    font-size: 0.85rem; 
     font-weight: 400;
-    color: var(--texto-light);
-    border-left: 2px solid transparent;
+    color: #e8f5e9; /* Texto muy legible */
+    border-left: 3px solid transparent;
     transition: all 0.2s ease;
     text-decoration: none;
 }
 
 .mobile-nav-content a:last-child {
-    margin-bottom: 0.8rem; /* Espacio extra al final de cada bloque */
+    margin-bottom: 0.8rem; 
 }
 
-/* Efecto al tocar/pasar el cursor por los enlaces */
+/* Efecto al tocar los enlaces */
 .mobile-nav-content a:hover {
-    color: var(--verde);
-    background: rgba(140, 198, 63, 0.05);
-    border-left-color: var(--verde-institucional);
-    padding-left: 1.8rem; /* Pequeño desplazamiento a la derecha */
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08); /* Brillo sutil */
+    border-left-color: var(--verde-institucional); /* Línea indicadora verde brillante */
+    padding-left: 1.8rem; 
 }
 
-/* Ajustes adaptativos para el Modo Oscuro */
-body.dark-mode .mobile-nav { background: #1f2937; border-top-color: #374151; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5); }
-body.dark-mode .mobile-nav-group { border-bottom-color: #374151; }
-body.dark-mode .mobile-nav-btn { background: #1f2937; color: #f3f4f6; }
-body.dark-mode .mobile-nav-btn:hover, body.dark-mode .mobile-nav-btn.active { background: #111827; color: var(--verde-institucional); }
-body.dark-mode .mobile-nav-btn i { color: #6b7280; }
-body.dark-mode .mobile-nav-content { background: #111827; }
-body.dark-mode .mobile-nav-content .group-title { color: var(--verde-institucional); }
-body.dark-mode .mobile-nav-content a { color: #9ca3af; }
-body.dark-mode .mobile-nav-content a:hover { color: #fff; background: rgba(140, 198, 63, 0.1); border-left-color: var(--verde-institucional); }
+/* Modo Oscuro (se integra perfecto porque ya es oscuro, pero ajustamos un poco) */
+body.dark-mode .mobile-nav, 
+body.dark-mode .mobile-nav-btn { background: #111827; }
+body.dark-mode .mobile-nav-content, 
+body.dark-mode .mobile-nav-btn:hover, 
+body.dark-mode .mobile-nav-btn.active { background: #1f2937; }
 
 /* =============================================
    HERO-WELCOME WRAPPER
