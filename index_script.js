@@ -192,3 +192,29 @@
   btnNext.addEventListener('click', () => moveManual(1));
   btnPrev.addEventListener('click', () => moveManual(-1));
 });
+
+  /* --- Acordeón para Nav Móvil --- */
+  const mobileNavBtns = document.querySelectorAll('.mobile-nav-btn');
+
+  mobileNavBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Opcional: Cerrar los otros menús abiertos al hacer clic en uno nuevo
+      mobileNavBtns.forEach(otherBtn => {
+        if (otherBtn !== btn && otherBtn.classList.contains('active')) {
+          otherBtn.classList.remove('active');
+          otherBtn.nextElementSibling.style.maxHeight = null;
+        }
+      });
+
+      // Alternar el estado activo del botón presionado
+      this.classList.toggle('active');
+      const content = this.nextElementSibling;
+      
+      // Controlar la animación de altura
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
